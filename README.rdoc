@@ -1,28 +1,9 @@
-== README
+This is a site for managing a library.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+It's available only for authorised users who are librarians.
 
-Things you may want to cover:
+Librarian register new readers and add new books to the catalog, they associate books with readers and watch for returning books in time. 
 
-* Ruby version
+They can list all readers and all books. They can find the book by an author, an edition year, a title, an annotaion.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+In the future categories like genres and subgenres will be available for this site.
