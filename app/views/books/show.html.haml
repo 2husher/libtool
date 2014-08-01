@@ -1,0 +1,7 @@
+%h1
+  A book
+
+= render partial: 'shared/show_book', locals: { book: @book }
+
+=link_to 'Change information', edit_book_path(@book)
+

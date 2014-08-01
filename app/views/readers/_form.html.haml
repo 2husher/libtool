@@ -1,0 +1,19 @@
+= form_for @reader do |r|
+  = render partial: 'shared/errors', locals: { object: r.object }
+
+  %p
+    = r.label :name
+    = r.text_field :name
+  %p
+    = r.label :reader_card_id
+    = r.text_field :reader_card_id
+  %p
+    = r.label :birthday
+    = r.date_field :birthday
+  %p
+    = r.label :address
+    = r.text_field :address
+  %p
+    = r.label :notes
+    = r.text_area :notes
+  = r.submit submit_lbl

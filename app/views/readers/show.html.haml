@@ -1,0 +1,45 @@
+%h1
+  New Reader
+%p
+  %strong
+    Name:
+  = @reader.name
+%p
+  %strong
+    Reader's card id:
+  = @reader.reader_card_id
+%p
+  %strong
+    Birthday:
+  = @reader.birthday
+%p 
+  %strong
+    Address:
+  = @reader.address
+%p
+  %strong
+    Notes:
+  = @reader.notes
+
+=link_to 'Change information', edit_reader_path(@reader)
+
+%h1
+  Reader's books
+
+-@reader.books.each do |b|
+  = b.identity
+  = b.title
+  = b.author
+
+%h1
+  Find book
+= form_tag '/search/find', method: 'get' do
+  = hidden_field_tag :return_to, @reader.id
+  = label_tag :query, 'Find a book by identity'
+  = text_field_tag :query
+  = submit_tag 'Add book'
+
+%h1
+  Accosiate book
+-unless @found_book.nil?
+  = render partial: 'shared/show_book', locals: { book: @found_book }
