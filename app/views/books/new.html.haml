@@ -1,5 +1,6 @@
-%h1
-  Add a new book to the library
-
-= render partial: 'form', locals: { submit_lbl: "Add a new book" }
+%div.lib_form
+  %fieldset
+    %legend
+      Add a new book to the library
+    = render partial: 'form', locals: { submit_lbl: "Add a new book" }
 

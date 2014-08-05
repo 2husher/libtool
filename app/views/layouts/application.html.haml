@@ -7,7 +7,12 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
-    = render'shared/header'
+    %div#carrier
+      = render'shared/header'
+      = render'shared/sidepanel'
 
-    = yield
+      %div#text
+        = yield
+
+      = render 'shared/footer'
   

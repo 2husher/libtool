@@ -1,20 +1,21 @@
 = form_for @book do |b|
   -#= render partial: 'shared/errors', locals: { object: b.object }
-  %p
+  %div.field
     = b.label :identity
-    = b.text_field :identity
-  %p
+    = b.text_field :identity, size: 40
+  %div.field
     = b.label :title
-    = b.text_field :title
-  %p
+    = b.text_field :title, size: 40
+  %div.field
     = b.label :author
-    = b.text_field :author
-  %p
+    = b.text_field :author, size: 40
+  %div.field
     = b.label :annotation
-    = b.text_area :annotation
-  %p 
+    = b.text_area :annotation, rows:4, cols: 40
+  %div.field
     = b.label :publishing_year
-    = b.text_field :publishing_year
+    = b.text_field :publishing_year, size: 40
     
     -#= b.hidden_field :reader_id
-  = b.submit submit_lbl
+  %div.actions
+    = b.submit submit_lbl
