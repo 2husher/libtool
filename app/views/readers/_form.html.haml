@@ -1,19 +1,23 @@
+-size_field = 60
+
 = form_for @reader do |r|
   = render partial: 'shared/errors', locals: { object: r.object }
-
-  %p
+  %div.field
     = r.label :name
-    = r.text_field :name
-  %p
+    = r.text_field :name, size: size_field
+  %div.field
     = r.label :reader_card_id
-    = r.text_field :reader_card_id
-  %p
+    = r.text_field :reader_card_id, size: size_field
+  %div.field
     = r.label :birthday
-    = r.date_field :birthday
-  %p
+    = r.date_field :birthday, size: size_field
+  %div.field
     = r.label :address
-    = r.text_field :address
-  %p
+    = r.text_field :address, size: size_field
+  %div.field
     = r.label :notes
-    = r.text_area :notes
-  = r.submit submit_lbl
+    = r.text_area :notes, rows:4, cols: size_field
+    
+    -#= r.hidden_field :reader_id
+  %div.actions
+    = r.submit submit_lbl

@@ -4,7 +4,7 @@ html, body {
     border:  0px;
 }
 body  {
-    background: green url(lib1.jpg);
+    background: url(lib1.jpg);
     color: #000;
     font-family: 'Courier New';
 }
@@ -69,16 +69,30 @@ body  {
   display: inline-block;
 }
 .txt_entry{
-    width: 10em;
+  width: 10em;
 }
 div.field, div.actions{
-    margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .lib_form fieldset {
-    width: 600px;
+  font-weight: bold;
+  color: yellow;
+  background: #a23;
+  width: 800px;
+}
+.lib_form fieldset legend{
+  background: #699;
+  color: yellow;
+  padding: 4px 10px;
 }
 .lib_form form label{
-            width: 200px;
-            display: block;
-            float: left;
+  width: 200px;
+  display: block;
+  float: left;
+  text-align: right;
+  margin-right: 10px;
+}
+.lib_form form textarea, .lib_form form select, .lib_form form input{
+  margin-left: 10px;
 }
