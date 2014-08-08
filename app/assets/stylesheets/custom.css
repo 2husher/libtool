@@ -75,6 +75,8 @@ div.field, div.actions{
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+
 .lib_form fieldset {
   font-weight: bold;
   color: yellow;
@@ -95,4 +97,25 @@ div.field, div.actions{
 }
 .lib_form form textarea, .lib_form form select, .lib_form form input{
   margin-left: 10px;
+}
+
+
+.lib_show fieldset {
+  font-weight: bold;
+  color: yellow;
+  background: #456;
+  width: 800px;
+}
+.lib_show fieldset legend{
+  background: #699;
+  color: yellow;
+  padding: 4px 10px;
+}
+div.lbl_show{
+  width: 200px;
+  display: block;
+  color: #fff;
+  float: left;
+  text-align: right;
+  margin-right: 10px;
 }

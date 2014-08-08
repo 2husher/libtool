@@ -1,25 +1,27 @@
-%h2
-  New Reader
-%p
-  %strong
-    Name:
-  = @reader.name
-%p
-  %strong
-    Reader's card id:
-  = @reader.reader_card_id
-%p
-  %strong
-    Birthday:
-  = @reader.birthday
-%p 
-  %strong
-    Address:
-  = @reader.address
-%p
-  %strong
-    Notes:
-  = @reader.notes
+%div.lib_show
+  %fieldset
+    %legend
+      New Reader
+    %div.field
+      %div.lbl_show
+        Name:
+      = @reader.name
+    %div.field
+      %div.lbl_show
+        Reader's card id:
+      = @reader.reader_card_id
+    %div.field
+      %div.lbl_show
+        Birthday:
+      = @reader.birthday
+    %div.field
+      %div.lbl_show
+        Address:
+      = @reader.address
+    %div.field
+      %div.lbl_show
+        Notes:
+      = @reader.notes
 
 =link_to 'Change information', edit_reader_path(@reader)
 
