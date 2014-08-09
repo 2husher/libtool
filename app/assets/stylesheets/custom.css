@@ -119,3 +119,16 @@ div.lbl_show{
   text-align: right;
   margin-right: 10px;
 }
+td, th{
+    padding: 10px;
+    border: 3px solid green;
+}
+th{
+    background: #f34;
+}
+.odd_line{
+  background: #b14;
+}
+.even_line{
+  background: #954;
+}

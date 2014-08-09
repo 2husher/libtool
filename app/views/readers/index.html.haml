@@ -21,7 +21,7 @@
     %th
 
   - @readers.each do |reader|
-    %tr
+    %tr(class="#{cycle('odd_line', 'even_line')}")
       %td
         = reader.name
       %td
