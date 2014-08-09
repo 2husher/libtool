@@ -1,37 +1,4 @@
 %h2
   All Books
-%table
-  %tr
-    %th
-      Identity
-    %th
-      Title
-    %th
-      Author
-    %th
-      Annotation
-    %th
-      Publishing year
-    %th
-      Reader
-    %th
-    %th
-  - @books.each do |book|
-    %tr(class="#{cycle('odd_line', 'even_line')}")
-      %td
-        = book.identity
-      %td
-        = book.title
-      %td
-        = book.author
-      %td
-        = book.annotation
-      %td 
-        = book.publishing_year
-      %td
-        = book.reader_id
-      %td
-        = link_to 'Show', book
-      %td
-        = link_to 'Delete', book, method: :delete
 
+=render partial: 'shared/show_all_books', locals: { books: @books }

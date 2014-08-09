@@ -25,23 +25,21 @@
 
 =link_to 'Change information', edit_reader_path(@reader)
 
-%h1
+%h3
   Reader's books
 
--@reader.books.each do |b|
-  = b.identity
-  = b.title
-  = b.author
+=render partial: 'shared/show_all_books', locals: { books: @reader.books }
 
-%h1
-  Find book
+
+%h3
+  Assosiate the book to the reader by id
 = form_tag '/search/find', method: 'get' do
   = hidden_field_tag :return_to, @reader.id
   = label_tag :query, 'Find a book by identity'
   = text_field_tag :query
   = submit_tag 'Add book'
 
-%h1
-  Accosiate book
--unless @found_book.nil?
-  = render partial: 'shared/show_book', locals: { book: @found_book }
+-#%h1
+-#  Accosiate book
+-#-unless @found_book.nil?
+-#  = render partial: 'shared/show_book', locals: { book: @found_book }

@@ -1,0 +1,40 @@
+%table
+  %tr
+    %th
+      Name:
+    %th
+      Reader's card id
+    %th
+      Birthday
+    %th
+      Address
+    %th
+      Books count
+    %th
+      Debtor
+    %th    
+      Notes
+    %th
+
+    %th
+
+  - readers.each do |reader|
+    %tr(class="#{cycle('odd_line', 'even_line')}")
+      %td
+        = reader.name
+      %td
+        = reader.reader_card_id
+      %td
+        = reader.birthday
+      %td 
+        = reader.address
+      %td
+        = reader.books.count
+      %td
+        
+      %td
+        = reader.notes
+      %td
+        = link_to 'Show', reader
+      %td
+        = link_to 'Delete', reader, method: :delete

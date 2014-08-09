@@ -22,10 +22,15 @@
       %div.lbl_show
         Publishing year:
       = @book.publishing_year
-    %div.field
-      %div.lbl_show
-        Reader:
-      = @book.reader_id
+
 
 =link_to 'Change information', edit_book_path(@book)
 
+-unless @book.reader_id.nil?
+  %h3
+    Book's holder
+
+  = render partial: 'shared/show_all_readers', locals: { readers: [Reader.find(@book.reader_id)] }
+-else
+  %h3
+    The book is free
