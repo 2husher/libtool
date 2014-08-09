@@ -16,7 +16,7 @@
     = b.text_area :annotation, rows:4, cols: size_field
   %div.field
     = b.label :publishing_year
-    = b.text_field :publishing_year, size: size_field
+    = b.date_select :publishing_year, start_year: 1950, end_year: 2014, discard_day: true, discard_month: true
     
     -#= b.hidden_field :reader_id
   %div.actions

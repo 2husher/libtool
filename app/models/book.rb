@@ -8,10 +8,10 @@
 #  title           :string(255)
 #  author          :string(255)
 #  annotation      :text
-#  publishing_year :integer
 #  returning_date  :date
 #  created_at      :datetime
 #  updated_at      :datetime
+#  publishing_year :date
 #
 # Indexes
 #
