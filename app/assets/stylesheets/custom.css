@@ -10,7 +10,7 @@ body  {
 }
 #carrier{
   //width: 1000px;
-  background: #fff url("red.gif") top left repeat-y scroll;
+  background: #fff;// url("red.gif") top left repeat-y scroll;
   margin: auto;
 }
 #header, #menu, #text h2, #footer{
@@ -27,9 +27,9 @@ body  {
   font-size: 150%;
 }
 #menucarrier{
-  width: 200px;
+  width: 10%;
   float: left;
-  //background: #c99;
+  background: #c99;
 }
 #menu{
   font-size: 18px;
@@ -43,8 +43,11 @@ body  {
   padding: 10px 0px;
   margin: 0px;
 }
+#textcarrier{  
+  width: 90%;
+  float: right;
+}
 #text{
-  margin-left: 200px;
   padding: 20px;
 }
 #text h2{

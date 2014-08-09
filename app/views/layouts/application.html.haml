@@ -11,8 +11,9 @@
       = render'shared/header'
       = render'shared/sidepanel'
 
-      %div#text
-        = yield
+      %div#textcarrier
+        %div#text
+          = yield
 
       = render 'shared/footer'
   
