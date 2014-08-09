@@ -43,6 +43,6 @@ class ReadersController < ApplicationController
     end
 
     def reader_params
-      params.require(:reader).permit(:name, :reader_card_id, :birthday, :notes, :address)      
+      params.require(:reader).permit(:name, :reader_card_id, :date_of_birth, :notes, :address)      
     end
 end

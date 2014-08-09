@@ -9,9 +9,6 @@
     = r.label :reader_card_id
     = r.text_field :reader_card_id, size: size_field
   %div.field
-    = r.label :birthday
-    = r.date_field :birthday, size: size_field
-  %div.field
     = r.label :address
     = r.text_field :address, size: size_field
   %div.field
@@ -19,5 +16,8 @@
     = r.text_area :notes, rows:4, cols: size_field
     
     -#= r.hidden_field :reader_id
+  %div.field
+    = r.label :date_of_birth
+    = r.date_select :date_of_birth, start_year: 1930, end_year: 2004
   %div.actions
     = r.submit submit_lbl

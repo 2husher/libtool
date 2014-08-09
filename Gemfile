@@ -17,7 +17,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'haml'
 
-gem 'annotate'
+gem 'annotate', ">=2.6.0"
 
 gem 'rails-footnotes', '>=4.0.0', '<5'
 

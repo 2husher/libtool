@@ -12,8 +12,8 @@
       = @reader.reader_card_id
     %div.field
       %div.lbl_show
-        Birthday:
-      = @reader.birthday
+        Date of birth:
+      = @reader.date_of_birth
     %div.field
       %div.lbl_show
         Address:
@@ -25,10 +25,11 @@
 
 =link_to 'Change information', edit_reader_path(@reader)
 
-%h3
-  Reader's books
+-if @reader.books.count > 0
+  %h3
+    Reader's books
 
-=render partial: 'shared/show_all_books', locals: { books: @reader.books }
+  =render partial: 'shared/show_all_books', locals: { books: @reader.books }
 
 
 %h3
