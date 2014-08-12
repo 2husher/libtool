@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140809194154) do
+ActiveRecord::Schema.define(version: 20140812173341) do
 
   create_table "books", force: true do |t|
     t.integer  "reader_id"
@@ -36,13 +36,20 @@ ActiveRecord::Schema.define(version: 20140809194154) do
 
   create_table "readers", force: true do |t|
     t.integer  "reader_card_id"
-    t.string   "name"
-    t.string   "address"
-    t.text     "notes"
     t.boolean  "is_banned"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "date_of_birth"
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
+    t.date     "date_of_registration"
+    t.string   "home_phone"
+    t.text     "profession_notes"
+    t.string   "street"
+    t.integer  "home_number"
+    t.integer  "building"
+    t.integer  "flat_number"
   end
 
 end

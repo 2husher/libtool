@@ -1,23 +1,39 @@
 -size_field = 60
 
+-#reader_card_id automatic assignment
+-#date_of_registration automatic assignment
+
 = form_for @reader do |r|
   = render partial: 'shared/errors', locals: { object: r.object }
   %div.field
-    = r.label :name
-    = r.text_field :name, size: size_field
+    = r.label :first_name
+    = r.text_field :first_name, size: size_field
   %div.field
-    = r.label :reader_card_id
-    = r.text_field :reader_card_id, size: size_field
+    = r.label :middle_name
+    = r.text_field :middle_name, size: size_field
   %div.field
-    = r.label :address
-    = r.text_field :address, size: size_field
-  %div.field
-    = r.label :notes
-    = r.text_area :notes, rows:4, cols: size_field
-    
-    -#= r.hidden_field :reader_id
+    = r.label :last_name
+    = r.text_field :last_name, size: size_field
   %div.field
     = r.label :date_of_birth
     = r.date_select :date_of_birth, start_year: 1930, end_year: 2004
+  %div.field
+    = r.label :street
+    = r.text_field :street, size: size_field
+  %div.field
+    = r.label :home_number
+    = r.select :home_number, ((1..200).map{ |i| [i,i] })
+  %div.field
+    = r.label :building
+    = r.select :building, (["нет корпуса", nil] + (1..10).map {|i| [i,i] })
+  %div.field
+    = r.label :flat_number
+    = r.select :flat_number, ((1..999).map {|i| [i,i] } )
+  %div.field
+    = r.label :home_phone
+    = r.text_field :home_phone, size: size_field
+  %div.field
+    = r.label :profession_notes
+    = r.text_area :profession_notes, rows:4, cols: size_field
   %div.actions
     = r.submit submit_lbl

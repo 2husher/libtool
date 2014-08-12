@@ -4,24 +4,44 @@
       New Reader
     %div.field
       %div.lbl_show
-        Name:
-      = @reader.name
+        Фамилия:
+      = @reader.last_name
     %div.field
       %div.lbl_show
-        Reader's card id:
+        Имя:
+      = @reader.first_name
+    %div.field
+      %div.lbl_show
+        Отчество:        
+      = @reader.middle_name
+    %div.field
+      %div.lbl_show
+        № читательского билета:
       = @reader.reader_card_id
     %div.field
       %div.lbl_show
-        Date of birth:
+        Дата регистрации:
+      = @reader.date_of_registration
+    %div.field
+      %div.lbl_show
+        Дата рождения:
       = @reader.date_of_birth
     %div.field
       %div.lbl_show
-        Address:
-      = @reader.address
+        Возраст
+      Вычислить
     %div.field
       %div.lbl_show
-        Notes:
-      = @reader.notes
+        Домашний адрес:
+      Вывести
+    %div.field
+      %div.lbl_show
+        Домашний телефон:
+      Вывести
+    %div.field
+      %div.lbl_show
+        Место учебы/работы, профессия:
+      = @reader.profession_notes
 
 =link_to 'Change information', edit_reader_path(@reader)
 
