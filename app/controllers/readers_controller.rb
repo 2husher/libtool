@@ -11,6 +11,8 @@ class ReadersController < ApplicationController
 
   def create
     @reader = Reader.new(reader_params)
+    @reader.date_of_registration = Date.today
+
     if @reader.save
       redirect_to @reader
     else
@@ -25,6 +27,8 @@ class ReadersController < ApplicationController
   end
 
   def update
+    @reader.date_of_registration = Date.today
+
     if @reader.update(reader_params)
       redirect_to @reader
     else
@@ -44,7 +48,7 @@ class ReadersController < ApplicationController
 
     def reader_params
       params.require(:reader).permit(:first_name, :middle_name, :last_name,
-                                     :reader_card_id, :date_of_birth, :date_of_registration,
+                                     :reader_card_id, :date_of_birth,
                                      :home_phone, :street, :home_number, :building, :flat_number,
                                      :profession_notes)
     end

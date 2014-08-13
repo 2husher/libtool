@@ -25,7 +25,7 @@
     = r.select :home_number, ((1..200).map{ |i| [i,i] })
   %div.field
     = r.label :building
-    = r.select :building, (["нет корпуса", nil] + (1..10).map {|i| [i,i] })
+    = r.select :building, ([["нет корпуса", nil]] + (1..10).map {|i| [i,i] })
   %div.field
     = r.label :flat_number
     = r.select :flat_number, ((1..999).map {|i| [i,i] } )

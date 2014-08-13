@@ -1,19 +1,11 @@
 %div.lib_show
   %fieldset
     %legend
-      New Reader
+      Новый читатель
     %div.field
       %div.lbl_show
-        Фамилия:
-      = @reader.last_name
-    %div.field
-      %div.lbl_show
-        Имя:
-      = @reader.first_name
-    %div.field
-      %div.lbl_show
-        Отчество:        
-      = @reader.middle_name
+        Ф.И.О:
+      = full_name
     %div.field
       %div.lbl_show
         № читательского билета:
@@ -21,19 +13,19 @@
     %div.field
       %div.lbl_show
         Дата регистрации:
-      = @reader.date_of_registration
+      = registration
     %div.field
       %div.lbl_show
         Дата рождения:
-      = @reader.date_of_birth
+      = birthday
     %div.field
       %div.lbl_show
         Возраст
-      Вычислить
+      = age
     %div.field
       %div.lbl_show
         Домашний адрес:
-      Вывести
+      = address
     %div.field
       %div.lbl_show
         Домашний телефон:
