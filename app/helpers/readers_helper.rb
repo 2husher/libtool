@@ -12,11 +12,7 @@ module ReadersHelper
     end
 
     def age
-        date_from = Date.today
-        date_orig = @reader.date_of_birth
-        age = date_from.year - date_orig.year
-        age -= 1 if date_from.month < date_orig.month || 
-                   (date_from.month == date_orig.month) && (date_from.day < date_from.day)
+        p age = @reader.age
         case age % 10
         when 1                   
             "#{age} год"

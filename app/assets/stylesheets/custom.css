@@ -102,6 +102,9 @@ div.field, div.actions{
   margin-left: 10px;
 }
 
+fieldset{
+  margin: 10px 0px;
+}
 
 .lib_show fieldset {
   font-weight: bold;

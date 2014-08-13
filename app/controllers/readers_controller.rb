@@ -47,8 +47,7 @@ class ReadersController < ApplicationController
     end
 
     def reader_params
-      params.require(:reader).permit(:first_name, :middle_name, :last_name,
-                                     :reader_card_id, :date_of_birth,
+      params.require(:reader).permit(:first_name, :middle_name, :last_name, :date_of_birth,
                                      :home_phone, :street, :home_number, :building, :flat_number,
                                      :profession_notes)
     end

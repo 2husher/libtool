@@ -21,22 +21,34 @@
 #
 
 class Reader < ActiveRecord::Base
-    #before_validate and save street.downcase.capitalize
     has_many :books
 
-  #  validates :reader_card_id, :date_of_birth, :first_name, :middle_name, :last_name,
-  #            :home_phone, :profession_notes, :street, :home_number, :flat_number,
-  #            :date_of_registration, presence: true
     validates :first_name, :middle_name, :last_name, 
-              format: { with: /\A[А-Яа-я]+\z/ }, 
+              format: { with: /\A[А-Я][а-я]+\z/ }, 
               length:{ maximum: 30 }, 
               presence: true
- #   validates :reader_card_id, format: { with: /\A\d\d\d\d\z/ }
-    #validates :date_of_birth, :date_of_registration
-  #  validates :home_phone, format: { with: /\A\d\d\d\d\d\d\d\z/ }
-    #validates :street
+    validates :reader_card_id, format: { with: /\A\d\d\d\d\z/ },
+              presence: true
+    validates :date_of_birth, :date_of_registration,
+              format: { with:/\A\d\d\d\d-\d\d-\d\d\z/ },
+              presence: true
+    validates :home_phone, format: { with: /\A\d\d\d-\d\d-\d\d\z/ },
+              presence: true
+    validates :reader_card_id, :profession_notes, :street,
+              presence: true
     validates :home_number, :flat_number, 
               format: { with: /\A\d+\z/ }, 
               length: { in: 1..4 },
               presence: true
+    validates :building, format: { with: /\A\d*\z/ },
+              length: { maximum: 3 }
+
+    def age
+        date_from = Date.today
+        date_orig = self.date_of_birth
+        age = date_from.year - date_orig.year
+        age -= 1 if date_from.month < date_orig.month || 
+                   (date_from.month == date_orig.month) && (date_from.day < date_from.day)
+        age
+    end
 end

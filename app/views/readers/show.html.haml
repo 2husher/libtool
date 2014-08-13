@@ -2,38 +2,40 @@
   %fieldset
     %legend
       Новый читатель
-    %div.field
-      %div.lbl_show
-        Ф.И.О:
-      = full_name
-    %div.field
-      %div.lbl_show
-        № читательского билета:
-      = @reader.reader_card_id
-    %div.field
-      %div.lbl_show
-        Дата регистрации:
-      = registration
-    %div.field
-      %div.lbl_show
-        Дата рождения:
-      = birthday
-    %div.field
-      %div.lbl_show
-        Возраст
-      = age
-    %div.field
-      %div.lbl_show
-        Домашний адрес:
-      = address
-    %div.field
-      %div.lbl_show
-        Домашний телефон:
-      Вывести
-    %div.field
-      %div.lbl_show
-        Место учебы/работы, профессия:
-      = @reader.profession_notes
+    %fieldset
+      %div.field
+        %div.lbl_show
+          Ф.И.О:
+        = full_name
+      %div.field
+        %div.lbl_show
+          № читательского билета:
+        = @reader.reader_card_id
+      %div.field
+        %div.lbl_show
+          Дата регистрации:
+        = registration
+    %fieldset
+      %div.field
+        %div.lbl_show
+          Дата рождения:
+        = birthday
+      %div.field
+        %div.lbl_show
+          Возраст
+        = age
+      %div.field
+        %div.lbl_show
+          Домашний адрес:
+        = address
+      %div.field
+        %div.lbl_show
+          Домашний телефон:
+        = @reader.home_phone
+      %div.field
+        %div.lbl_show
+          Место учебы/работы, профессия:
+        = @reader.profession_notes
 
 =link_to 'Change information', edit_reader_path(@reader)
 
