@@ -21,6 +21,8 @@ gem 'annotate', ">=2.6.0"
 
 gem 'rails-footnotes', '>=4.0.0', '<5'
 
+gem 'faker'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

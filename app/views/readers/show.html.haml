@@ -6,7 +6,7 @@
       %div.field
         %div.lbl_show
           Ф.И.О:
-        = full_name
+        = full_name @reader
       %div.field
         %div.lbl_show
           № читательского билета:
@@ -14,20 +14,20 @@
       %div.field
         %div.lbl_show
           Дата регистрации:
-        = registration
+        = registration @reader
     %fieldset
       %div.field
         %div.lbl_show
           Дата рождения:
-        = birthday
+        = birthday @reader
       %div.field
         %div.lbl_show
           Возраст
-        = age
+        = age @reader
       %div.field
         %div.lbl_show
           Домашний адрес:
-        = address
+        = address @reader
       %div.field
         %div.lbl_show
           Домашний телефон:

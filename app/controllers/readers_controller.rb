@@ -2,7 +2,7 @@ class ReadersController < ApplicationController
   before_action :set_reader, only: [:show, :edit, :update, :destroy]
 
   def index
-    @readers = Reader.order(:name)
+    @readers = Reader.all#.order(:last_name)
   end
 
   def new
@@ -12,6 +12,7 @@ class ReadersController < ApplicationController
   def create
     @reader = Reader.new(reader_params)
     @reader.date_of_registration = Date.today
+    @reader.reader_card_id = set_reader_card_id
 
     if @reader.save
       redirect_to @reader
@@ -28,6 +29,7 @@ class ReadersController < ApplicationController
 
   def update
     @reader.date_of_registration = Date.today
+    @reader.reader_card_id = set_reader_card_id
 
     if @reader.update(reader_params)
       redirect_to @reader
@@ -50,5 +52,14 @@ class ReadersController < ApplicationController
       params.require(:reader).permit(:first_name, :middle_name, :last_name, :date_of_birth,
                                      :home_phone, :street, :home_number, :building, :flat_number,
                                      :profession_notes)
+    end
+
+    def set_reader_card_id
+      reader_card_max = Reader.maximum(:reader_card_id)
+      if reader_card_max.nil?
+          reader_card_id = "0000"
+      else
+          reader_card_id = sprintf("%04d", reader_card_max + 1)
+      end
     end
 end

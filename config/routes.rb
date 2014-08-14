@@ -1,3 +1,25 @@
+# == Route Map
+#
+#      Prefix Verb   URI Pattern                 Controller#Action
+# search_find GET    /search/find(.:format)      search#find
+#       books GET    /books(.:format)            books#index
+#             POST   /books(.:format)            books#create
+#    new_book GET    /books/new(.:format)        books#new
+#   edit_book GET    /books/:id/edit(.:format)   books#edit
+#        book GET    /books/:id(.:format)        books#show
+#             PATCH  /books/:id(.:format)        books#update
+#             PUT    /books/:id(.:format)        books#update
+#             DELETE /books/:id(.:format)        books#destroy
+#     readers GET    /readers(.:format)          readers#index
+#             POST   /readers(.:format)          readers#create
+#  new_reader GET    /readers/new(.:format)      readers#new
+# edit_reader GET    /readers/:id/edit(.:format) readers#edit
+#      reader GET    /readers/:id(.:format)      readers#show
+#             PATCH  /readers/:id(.:format)      readers#update
+#             PUT    /readers/:id(.:format)      readers#update
+#             DELETE /readers/:id(.:format)      readers#destroy
+#
+
 Libtool::Application.routes.draw do
 
   get "search/find"

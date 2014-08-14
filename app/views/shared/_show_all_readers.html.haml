@@ -12,28 +12,22 @@
       Books count
     %th
       Debtor
-    %th    
-      Notes
     %th
-
     %th
 
   - readers.each do |reader|
     %tr(class="#{cycle('odd_line', 'even_line')}")
       %td
-        = reader.name
+        = full_name reader
       %td
         = reader.reader_card_id
       %td
-        = reader.date_of_birth
+        = age reader
       %td 
-        = reader.address
+        = reader.home_phone
       %td
         = reader.books.count
       %td
-        
-      %td
-        = reader.notes
       %td
         = link_to 'Show', reader
       %td
