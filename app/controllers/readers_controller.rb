@@ -2,7 +2,7 @@ class ReadersController < ApplicationController
   before_action :set_reader, only: [:show, :edit, :update, :destroy]
 
   def index
-    @readers = Reader.all#.order(:last_name)
+    @readers = Reader.paginate(page: params[:page])
   end
 
   def new

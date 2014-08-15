@@ -36,7 +36,7 @@ namespace :my_namespace do
                            flat_number:          flat_number) 
         }
 =end
-        10.times {
+        100.times {
             identity            = Faker::Number.number(10)
             p identity_formated = "ISBN #{identity[0]}-#{identity[1..4]}-#{identity[5..8]}-#{identity[9]}"
             title               = Faker::Company.catch_phrase

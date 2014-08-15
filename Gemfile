@@ -23,6 +23,8 @@ gem 'rails-footnotes', '>=4.0.0', '<5'
 
 gem 'faker'
 
+gem 'will_paginate'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

@@ -1,4 +1,8 @@
 %h2
   All Books
 
+= will_paginate @books
+
 =render partial: 'shared/show_all_books', locals: { books: @books }
+
+= will_paginate @books

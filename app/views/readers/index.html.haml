@@ -1,4 +1,8 @@
 %h2
   All Readers
 
+= will_paginate @readers
+
 = render partial: 'shared/show_all_readers', locals: { readers: @readers }
+
+= will_paginate @readers
