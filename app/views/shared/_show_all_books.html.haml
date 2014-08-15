@@ -7,9 +7,7 @@
     %th
       Author
     %th
-      Annotation
-    %th
-      Publishing year
+      Returning date
     %th
       Reader
     %th
@@ -22,10 +20,8 @@
         = book.title
       %td
         = book.author
-      %td
-        = book.annotation
       %td 
-        = book.publishing_year.year
+        = days_to_return book
       %td
         = book.reader_id
       %td

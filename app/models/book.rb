@@ -19,8 +19,18 @@
 #
 
 class Book < ActiveRecord::Base
-    #TODO: add return date
   belongs_to :reader
 
-  validates :identity, :title, :author, :publishing_year, presence: true
+  validates :identity,
+            presence: true
+  validates :title,
+            presence: true
+  validates :author,
+            presence: true
+  validates :publishing_year, format: { with:/\A\d\d\d\d-\d\d-\d\d\z/ },
+            presence: true
+  validates :annotation,
+            presence: true
+  validates :returning_date, format: { with:/\A\d\d\d\d-\d\d-\d\d\z/ },
+            presence: true
 end

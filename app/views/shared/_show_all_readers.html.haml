@@ -1,9 +1,9 @@
 %table
   %tr
     %th
-      Name:
-    %th
       Reader's card id
+    %th
+      Name:
     %th
       Birthday
     %th
@@ -18,9 +18,9 @@
   - readers.each do |reader|
     %tr(class="#{cycle('odd_line', 'even_line')}")
       %td
-        = full_name reader
-      %td
         = reader.reader_card_id
+      %td
+        = full_name reader
       %td
         = age reader
       %td 

@@ -2,26 +2,33 @@
   %fieldset
     %legend
       A book
-    %div.field
-      %div.lbl_show
-        Identity:
-      = @book.identity
-    %div.field
-      %div.lbl_show
-        Title:
-      = @book.title
-    %div.field
-      %div.lbl_show
-        Author:
-      = @book.author
-    %div.field
-      %div.lbl_show
-        Annotation:
-      = @book.annotation
-    %div.field
-      %div.lbl_show
-        Publishing year:
-      = @book.publishing_year.year
+    %fieldset
+      %div.field
+        %div.lbl_show
+          Identity:
+        = @book.identity
+      %div.field
+        %div.lbl_show
+          Title:
+        = @book.title
+      %div.field
+        %div.lbl_show
+          Author:
+        = @book.author
+      %div.field
+        %div.lbl_show
+          Returning date:
+        = @book.returning_date
+        (#{days_to_return @book})
+    %fieldset
+      %div.field
+        %div.lbl_show
+          Annotation:
+        = @book.annotation
+      %div.field
+        %div.lbl_show
+          Publishing year:
+        = @book.publishing_year.year
 
 
 =link_to 'Change information', edit_book_path(@book)
