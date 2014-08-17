@@ -10,7 +10,7 @@ body  {
 }
 #carrier{
   //width: 1000px;
-  background: #fff;// url("red.gif") top left repeat-y scroll;
+  //background: #fff;// url("red.gif") top left repeat-y scroll;
   margin: auto;
 }
 #header, #menu, #text h2, #footer{
@@ -137,4 +137,18 @@ th{
 }
 .even_line{
   background: #954;
+}
+.notice{
+  color : green;
+  background-color: #90e192;
+  border: solid;
+  padding: 10px;
+  text-align: center;
+}
+.error{
+  color : red;
+  background-color: #f5dadc;
+  border: solid;
+  padding: 10px;
+  text-align: center;
 }

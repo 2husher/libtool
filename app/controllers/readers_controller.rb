@@ -15,8 +15,9 @@ class ReadersController < ApplicationController
     @reader.reader_card_id = set_reader_card_id
 
     if @reader.save
-      redirect_to @reader
+      redirect_to @reader, notice: "Reader successfully created!"
     else
+      flash.now[:error] = "Can't save sorry:("
       render :new
     end
   end
@@ -29,18 +30,21 @@ class ReadersController < ApplicationController
 
   def update
     @reader.date_of_registration = Date.today
-    @reader.reader_card_id = set_reader_card_id
+    #@reader.reader_card_id = set_reader_card_id
 
     if @reader.update(reader_params)
-      redirect_to @reader
+      #debugger
+      redirect_to @reader, notice: "Reader successfully updated!"
     else
+      flash.now[:error] = "Can't save sorry:("
       render :edit
     end
   end
 
   def destroy
     @reader.destroy
-    redirect_to readers_path
+    #debugger
+    redirect_to readers_url, notice: "Reader successfully destroyed!"
   end
 
   private
@@ -59,7 +63,7 @@ class ReadersController < ApplicationController
       if reader_card_max.nil?
           reader_card_id = "0000"
       else
-          reader_card_id = sprintf("%04d", reader_card_max + 1)
+          reader_card_id = sprintf("%04d", reader_card_max.to_i + 1)
       end
     end
 end

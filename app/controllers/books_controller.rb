@@ -13,8 +13,9 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     #@book.reader_id = '1'
     if @book.save
-        redirect_to @book
+        redirect_to @book, notice: "Book successfully created!"
     else
+        flash.now[:error] = "Can't save sorry:("
         render :new
     end
   end
@@ -27,15 +28,16 @@ class BooksController < ApplicationController
 
   def update
     if @book.update(book_params)
-        redirect_to @book
+        redirect_to @book, notice: "Book successfully updated!"
     else
+        flash.now[:error] = "Can't save sorry:("
         render :new
     end
   end
 
   def destroy
     @book.destroy
-    redirect_to books_path
+    redirect_to books_path, notice: "Book successfully destroyed!"
   end
 
   private

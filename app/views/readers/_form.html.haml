@@ -5,35 +5,38 @@
 
 = form_for @reader do |r|
   = render partial: 'shared/errors', locals: { object: r.object }
-  %div.field
-    = r.label :last_name, "Фамилия"
-    = r.text_field :last_name, size: size_field
-  %div.field
-    = r.label :first_name, "Имя"
-    = r.text_field :first_name, size: size_field
-  %div.field
-    = r.label :middle_name, "Отчество"
-    = r.text_field :middle_name, size: size_field
-  %div.field
-    = r.label :date_of_birth, "Дата рождения"
-    = r.date_select :date_of_birth, start_year: 1930, end_year: 2004
-  %div.field
-    = r.label :street, "Улица/переулок/проспект"
-    = r.text_field :street, size: size_field
-  %div.field
-    = r.label :home_number, "№ дома"
-    = r.select :home_number, ((1..200).map{ |i| [i,i] })
-  %div.field
-    = r.label :building, "Корпус"
-    = r.select :building, ([["нет корпуса", 0]] + (1..10).map {|i| [i,i] })
-  %div.field
-    = r.label :flat_number, "№ квартиры"
-    = r.select :flat_number, ((1..999).map {|i| [i,i] } )
-  %div.field
-    = r.label :home_phone, "Дом.тел.(в формате xxx-xx-xx)"
-    = r.text_field :home_phone, size: size_field
-  %div.field
-    = r.label :profession_notes, "Профессия/учеба/пенсия"
-    = r.text_area :profession_notes, rows:4, cols: size_field, value: "..."
+  %fieldset
+    %div.field
+      = r.label :last_name, "Фамилия"
+      = r.text_field :last_name, size: size_field
+    %div.field
+      = r.label :first_name, "Имя"
+      = r.text_field :first_name, size: size_field
+    %div.field
+      = r.label :middle_name, "Отчество"
+      = r.text_field :middle_name, size: size_field
+    %div.field
+      = r.label :date_of_birth, "Дата рождения"
+      = r.date_select :date_of_birth, start_year: 1930, end_year: 2004
+  %fieldset
+    %div.field
+      = r.label :street, "Улица/переулок/проспект"
+      = r.text_field :street, size: size_field
+    %div.field
+      = r.label :home_number, "№ дома"
+      = r.select :home_number, ((1..200).map{ |i| [i,i] })
+    %div.field
+      = r.label :building, "Корпус"
+      = r.select :building, ([["нет корпуса", 0]] + (1..10).map {|i| [i,i] })
+    %div.field
+      = r.label :flat_number, "№ квартиры"
+      = r.select :flat_number, ((1..999).map {|i| [i,i] } )
+    %div.field
+      = r.label :home_phone, "Дом.тел.(в формате xxx-xx-xx)"
+      = r.text_field :home_phone, size: size_field
+  %fieldset
+    %div.field
+      = r.label :profession_notes, "Профессия/учеба/пенсия"
+      = r.text_area :profession_notes, rows:4, cols: size_field
   %div.actions
     = r.submit submit_lbl
