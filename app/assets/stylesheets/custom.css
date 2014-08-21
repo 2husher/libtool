@@ -46,6 +46,7 @@ body  {
 #textcarrier{  
   width: 90%;
   float: right;
+  background-color: #fff;
 }
 #text{
   padding: 20px;

@@ -13,12 +13,11 @@
     %th
       Debtor
     %th
-    %th
 
   - readers.each do |reader|
     %tr(class="#{cycle('odd_line', 'even_line')}")
       %td
-        = reader.reader_card_id
+        = link_to reader.reader_card_id, reader
       %td
         = full_name reader
       %td
@@ -28,7 +27,5 @@
       %td
         = reader.books.count
       %td
-      %td
-        = link_to 'Show', reader
       %td
         = link_to 'Delete', reader, method: :delete
