@@ -25,6 +25,11 @@ gem 'faker'
 
 gem 'will_paginate'
 
+gem 'rspec-rails', "~> 2.14"
+
+gem 'capybara', "2.1.0"
+gem 'selenium-webdriver'
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
