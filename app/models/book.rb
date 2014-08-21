@@ -21,6 +21,8 @@
 class Book < ActiveRecord::Base
   belongs_to :reader
 
+  default_scope { order(:returning_date) }
+
   scope :free, -> { where(reader_id: nil) }
 
   validates :identity,

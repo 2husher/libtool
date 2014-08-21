@@ -26,6 +26,8 @@ Libtool::Application.routes.draw do
 
   get "books/free"
 
+  get "readers/debtors"
+
   get "books/:id/return" => "books#return", as: :return
 
   get 'books/:id/continue' => "books#continue", as: :continue

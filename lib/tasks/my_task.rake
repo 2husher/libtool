@@ -1,10 +1,25 @@
 namespace :my_namespace do
     desc "TATAM"
     task populate_readers: :environment do
+        10.times {
+            identity            = Faker::Number.number(10)
+            identity_formated   = "ISBN #{identity[0]}-#{identity[1..4]}-#{identity[5..8]}-#{identity[9]}"
+            title               = Faker::Company.catch_phrase
+            author              = Faker::Name.name
+            annotation          = Faker::Lorem.paragraph
+            publishing_year     = Date.new(rand(64) + 1950, 1, 1)
+            Book.create!(identity:        identity_formated,
+                         reader_id:       nil,
+                         title:           title,
+                         author:          author,
+                         annotation:      annotation,
+                         returning_date:  Date.new(9999,1,1),
+                         publishing_year: publishing_year)
+        }
         70.times {
             first_name           = Faker::Name.first_name
             middle_name          = Faker::Name.first_name
-            last_name          = Faker::Name.last_name
+            last_name            = Faker::Name.last_name
             home_phone           = Faker::Number.number(7)
             home_phone_formated  = "#{home_phone[0..2]}-#{home_phone[3..4]}-#{home_phone[5..6]}"
             profession_notes     = Faker::Lorem.sentence
@@ -35,11 +50,11 @@ namespace :my_namespace do
                            flat_number:          flat_number) 
             rand(8).times {
                 identity            = Faker::Number.number(10)
-                identity_formated = "ISBN #{identity[0]}-#{identity[1..4]}-#{identity[5..8]}-#{identity[9]}"
+                identity_formated   = "ISBN #{identity[0]}-#{identity[1..4]}-#{identity[5..8]}-#{identity[9]}"
                 title               = Faker::Company.catch_phrase
                 author              = Faker::Name.name
                 annotation          = Faker::Lorem.paragraph
-                returning_date      = Date.today + rand(8).days
+                returning_date      = Date.today - 1.days + rand(9).days
                 publishing_year     = Date.new(rand(64) + 1950, 1, 1)
                 reader.books.create!(identity:        identity_formated,
                              title:           title,

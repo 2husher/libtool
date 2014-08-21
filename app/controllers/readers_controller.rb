@@ -47,6 +47,10 @@ class ReadersController < ApplicationController
     redirect_to readers_url, notice: "Reader successfully destroyed!"
   end
 
+  def debtors
+    @readers = Reader.includes(:books).where("books.returning_date < ?", Date.today).paginate(page: params[:page])
+  end
+
   private
     def set_reader
       @reader = Reader.find(params[:id])

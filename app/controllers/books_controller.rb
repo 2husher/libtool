@@ -43,7 +43,7 @@ class BooksController < ApplicationController
   def return
     book = Book.find(params[:id])
     reader_id = book.reader_id
-    book.update(reader_id: nil, returning_date: nil)
+    book.update(reader_id: nil, returning_date: Date.new(9999,1,1))
     redirect_to reader_path(reader_id), notice: "Book #{book.identity} #{book.title} #{book.author} returned to the library!"
   end
 

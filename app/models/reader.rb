@@ -27,11 +27,9 @@
 class Reader < ActiveRecord::Base
     has_many :books
 
-    validates :first_name, :middle_name, 
-              format: { with: /\A[A-Za-z]+\z/ }, 
+    validates :first_name, :middle_name, :last_name,
+              #format: { with: /\A[A-Za-z]+\z/ }, 
               length:{ maximum: 30 }, 
-              presence: true
-    validates :last_name,  length:{ maximum: 30 },
               presence: true
     validates :reader_card_id,  uniqueness: true, format: { with: /\A\d\d\d\d\z/ },
               presence: true
