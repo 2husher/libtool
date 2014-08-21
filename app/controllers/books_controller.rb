@@ -31,7 +31,7 @@ class BooksController < ApplicationController
         redirect_to @book, notice: "Book successfully updated!"
     else
         flash.now[:error] = "Can't save sorry:("
-        render :new
+        render :edit
     end
   end
 
