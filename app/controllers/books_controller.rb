@@ -47,6 +47,13 @@ class BooksController < ApplicationController
     redirect_to reader_path(reader_id), notice: "Book #{book.identity} #{book.title} #{book.author} returned to the library!"
   end
 
+  def continue
+    book = Book.find(params[:id])
+    reader_id = book.reader_id
+    book.update(returning_date: Date.today + 7.days)
+    redirect_to reader_path(reader_id), notice: "Book #{book.identity} #{book.title} #{book.author} continued to #{book.returning_date}"
+  end
+
   private
     def set_book
         @book = Book.find(params[:id])

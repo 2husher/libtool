@@ -31,7 +31,7 @@
       %td
         = link_to 'Return', return_path(id: book.id)
       %td
-        = link_to 'Continue', '#'
+        = link_to 'Continue', continue_path(book.id)
       %td
         = link_to 'Delete', book, method: :delete
  

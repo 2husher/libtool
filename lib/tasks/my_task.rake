@@ -39,7 +39,7 @@ namespace :my_namespace do
                 title               = Faker::Company.catch_phrase
                 author              = Faker::Name.name
                 annotation          = Faker::Lorem.paragraph
-                returning_date      = Date.today + 7.days
+                returning_date      = Date.today + rand(8).days
                 publishing_year     = Date.new(rand(64) + 1950, 1, 1)
                 reader.books.create!(identity:        identity_formated,
                              title:           title,
