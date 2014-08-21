@@ -23,6 +23,9 @@
 Libtool::Application.routes.draw do
 
   get "search/find"
+
+  get "books/:id/return" => "books#return", as: :return
+
   resources :books
   
   resources :readers

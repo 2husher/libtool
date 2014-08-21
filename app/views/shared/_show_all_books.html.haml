@@ -12,6 +12,8 @@
       Reader
     %th
     %th
+    %th
+    %th
   - books.each do |book|
     %tr(class="#{cycle('odd_line', 'even_line')}")
       %td
@@ -26,6 +28,10 @@
         = book.reader_id
       %td
         = link_to 'Show', book
+      %td
+        = link_to 'Return', return_path(id: book.id)
+      %td
+        = link_to 'Continue', '#'
       %td
         = link_to 'Delete', book, method: :delete
  
