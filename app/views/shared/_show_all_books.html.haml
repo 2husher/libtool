@@ -21,14 +21,20 @@
         = book.title
       %td
         = book.author
-      %td 
-        = days_to_return book
-      %td
-        = link_to book.reader_id, reader_path(book.reader_id)
-      %td
-        = link_to 'Return', return_path(id: book.id)
-      %td
-        = link_to 'Continue', continue_path(book.id)
+      - unless book.reader_id.nil?
+        %td 
+          = days_to_return book
+        %td
+          = link_to book.reader_id, reader_path(book.reader_id)
+        %td
+          = link_to 'Return', return_path(id: book.id)
+        %td
+          = link_to 'Continue', continue_path(book.id)
+      - else
+        %td
+        %td
+        %td
+        %td
       %td
         = link_to 'Delete', book, method: :delete
  

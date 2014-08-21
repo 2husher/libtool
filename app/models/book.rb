@@ -21,6 +21,8 @@
 class Book < ActiveRecord::Base
   belongs_to :reader
 
+  scope :free, -> { where(reader_id: nil) }
+
   validates :identity,
             presence: true
   validates :title,

@@ -43,7 +43,7 @@ class BooksController < ApplicationController
   def return
     book = Book.find(params[:id])
     reader_id = book.reader_id
-    book.update(reader_id: nil)
+    book.update(reader_id: nil, returning_date: nil)
     redirect_to reader_path(reader_id), notice: "Book #{book.identity} #{book.title} #{book.author} returned to the library!"
   end
 
@@ -52,6 +52,10 @@ class BooksController < ApplicationController
     reader_id = book.reader_id
     book.update(returning_date: Date.today + 7.days)
     redirect_to reader_path(reader_id), notice: "Book #{book.identity} #{book.title} #{book.author} continued to #{book.returning_date}"
+  end
+
+  def free
+    @books = Book.free.paginate(page: params[:page])
   end
 
   private
