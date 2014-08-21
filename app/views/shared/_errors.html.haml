@@ -1,8 +1,9 @@
-- if object.errors.any?
-  %h2
-    = pluralize object.errors.count, "error"
-    prohibited this product from being saved:
-  %ul
-    - object.errors.full_messages.each do |msg|
-      %li
-        = msg
+%div.errors
+  - if object.errors.any?
+    %h2
+      = pluralize object.errors.count, "error"
+      prohibited this product from being saved:
+    %ul
+      - object.errors.full_messages.each do |msg|
+        %li
+          = msg
