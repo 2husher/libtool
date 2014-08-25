@@ -22,6 +22,8 @@
 
 Libtool::Application.routes.draw do
 
+  root 'readers#index'
+
   get "search/find"
 
   get "books/free"
