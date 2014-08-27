@@ -11,7 +11,8 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    #@book.reader_id = '1'
+    @book.reader_id = nil
+    @book.publishing_year = Date.today
     if @book.save
         redirect_to @book, notice: "Book successfully created!"
     else

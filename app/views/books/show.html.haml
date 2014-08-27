@@ -1,3 +1,7 @@
+-if notice
+  %div.notice
+    = notice
+
 %div.lib_show
   %fieldset
     %legend
@@ -16,10 +20,11 @@
           Author:
         = @book.author
       %div.field
-        %div.lbl_show
-          Returning date:
-        = @book.returning_date
-        (#{days_to_return @book})
+        -unless @book.reader.nil?
+          %div.lbl_show
+            Returning date:
+          = @book.returning_date
+          (#{days_to_return @book})
     %fieldset
       %div.field
         %div.lbl_show

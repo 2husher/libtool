@@ -12,7 +12,7 @@ module ReadersHelper
     end
 
     def age reader
-        p age = reader.age
+        age = reader.age
         case age % 10
         when 1                   
             "#{age} год"

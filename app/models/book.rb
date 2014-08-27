@@ -35,6 +35,4 @@ class Book < ActiveRecord::Base
             presence: true
   validates :annotation,
             presence: true
-  validates :returning_date, format: { with:/\A\d\d\d\d-\d\d-\d\d\z/ },
-            presence: true
 end
