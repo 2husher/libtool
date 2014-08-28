@@ -1,0 +1,23 @@
+require 'spec_helper'
+
+describe "Reader" do 
+
+	subject{ reader }
+	
+	let(:reader){ FactoryGirl.create(:reader) }
+
+	describe "Reader's attributes" do
+	
+		it "should first_name" do
+		    should respond_to(:first_name)
+		end
+	
+		it "should middle_name" do
+			should respond_to(:middle_name)
+		end
+
+		it "should last_name" do
+			should respond_to(:last_name)
+		end
+	end
+end

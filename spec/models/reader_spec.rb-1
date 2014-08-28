@@ -1,0 +1,35 @@
+require 'spec_helper'
+
+describe "Reader" do 
+
+	#subject{ reader }
+	
+	#let(:reader){ FactoryGirl.create(:reader) }
+
+	describe "Reader's attributes" do
+	
+	p "before #{Reader.count}"
+		
+		it "should first_name" do
+		    reader = FactoryGirl.create(:reader) 
+		    reader.should respond_to(:first_name)
+		end
+	
+	p "after 1st #{Reader.count}"
+
+		it "should middle_name" do
+		    reader = FactoryGirl.create(:reader) 
+			reader.should respond_to(:middle_name)
+		end
+
+	p "after 2nd #{Reader.count}"
+
+		it "should last_name" do
+			reader = FactoryGirl.create(:reader) 
+			reader.should respond_to(:last_name)
+		end
+
+	p "after all #{Reader.count}"
+	
+	end
+end
