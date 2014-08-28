@@ -42,10 +42,11 @@ class Reader < ActiveRecord::Base
               presence: true
     validates :home_number, :flat_number, 
               format: { with: /\A\d+\z/ }, 
-              length: { in: 1..4 },
+              length: { maximum: 4 },
               presence: true
     validates :building, format: { with: /\A\d*\z/ },
-              length: { maximum: 3 }
+              length: { maximum: 3 },
+              presence: true
 
     def age
         date_from = Date.today
