@@ -72,23 +72,18 @@ describe "Reader pages" do
 
     describe "index" do
 
+        before { visit readers_path }
+
+        it { should have_title("All Readers | Library") }
+        it { should have_content("All Readers") }
+
         #describe "paginate" do
         
-        #describe "all readers" 
+        #describe "all readers" after creating in FactoryGirl readers
 
         #describe "delete a reader"
 
         #describe ""
-
-        it "should have the content 'All Readers" do
-            visit '/readers'
-            expect(page).to have_content('All Readers')
-        end
-
-        it "should have the title 'Library'" do
-            visit '/readers'
-            expect(page).to have_title('Library')
-        end
     end
 
     #describe "show a reader"
@@ -105,6 +100,7 @@ describe "Reader pages" do
         before { visit edit_reader_path(reader) }
 
         describe "page" do
+            it { should have_title("Edit reader | Library") }
             it { should have_content("Change reader's information") }
         end
 
