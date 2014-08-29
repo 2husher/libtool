@@ -4,7 +4,7 @@ describe "Reader pages" do
 
     subject { page }
 
-    describe "create" do
+    describe "new" do
 #        before do
 #            visit '/'
 #            click_link 'Register a new reader'
@@ -12,6 +12,9 @@ describe "Reader pages" do
         before do
             visit new_reader_path
         end
+
+        it { should have_title("New Reader | Library") }
+        it { should have_content("New reader registration") }
 
         describe "with valid parameters" do
             before do
@@ -86,7 +89,15 @@ describe "Reader pages" do
         #describe ""
     end
 
-    #describe "show a reader"
+    describe "show" do
+        let(:reader) { FactoryGirl.create(:reader) }
+        before { visit reader_path(reader) }
+
+        describe "page" do
+            it { should have_title("#{reader.reader_card_id} | Library") }
+            it { should have_content("Reader's information") }
+        end
+    end
 
             #describe "a new reader"
 
@@ -100,7 +111,7 @@ describe "Reader pages" do
         before { visit edit_reader_path(reader) }
 
         describe "page" do
-            it { should have_title("Edit reader | Library") }
+            it { should have_title("Edit Reader | Library") }
             it { should have_content("Change reader's information") }
         end
 
