@@ -99,22 +99,102 @@ describe "Reader" do
 					should be_valid
 				}
 			end
-		end		
+		end	
+
+		describe "is already taken" do
+			before do
+				reader_with_same_reader_card_id = @reader.dup
+				reader_with_same_reader_card_id.save
+			end
+
+			it { should_not be_valid }
+		end	
 	end
 
-	describe "when date of birth is not present" do
-		before { @reader.date_of_birth = "" }
-		it { should_not be_valid }
+	describe "when date of birth" do
+
+		describe "is not present" do
+			before { @reader.date_of_birth = "" }
+			it { should_not be_valid }
+		end
+
+		describe "format is invalid" do
+			it "should not be valid" do 
+				#dates_of_birth = %w[1929-01-01 2005-12-31 1990-00-00 1990-13-01 1990-01-32]
+				dates_of_birth = %w[1990-00-00 1990-13-01 1990-01-32]
+				dates_of_birth.each { |date_of_birth|
+					@reader.date_of_birth = date_of_birth
+					expect(@reader).not_to be_valid
+				}
+			end
+		end
+
+		describe "format is valid" do
+			it "should be valid" do 
+				dates_of_birth = %w[1930-01-01 1990-06-22 2004-12-31]
+				dates_of_birth.each { |date_of_birth|
+					@reader.date_of_birth = date_of_birth
+					should be_valid
+				}
+			end
+		end	
 	end
 
-	describe "when date of registration is not present" do
-		before { @reader.date_of_registration = "" }
-		it { should_not be_valid }
+	describe "when date of registration" do
+
+		describe "is not present" do
+			before { @reader.date_of_registration = "" }
+			it { should_not be_valid }
+		end
+
+		describe "format is invalid" do
+			it "should not be valid" do 
+				#dates_of_birth = %w[1929-01-01 2005-12-31 1990-00-00 1990-13-01 1990-01-32]
+				dates_of_registration = %w[1990-00-00 1990-13-01 1990-01-32]
+				dates_of_registration.each { |date_of_registration|
+					@reader.date_of_registration = date_of_registration
+					expect(@reader).not_to be_valid
+				}
+			end
+		end
+
+		describe "format is valid" do
+			it "should be valid" do 
+				dates_of_registration = %w[1930-01-01 1990-06-22 2004-12-31]
+				dates_of_registration.each { |date_of_registration|
+					@reader.date_of_registration = date_of_registration
+					should be_valid
+				}
+			end
+		end	
 	end
 
-	describe "when home phone is not present" do
-		before { @reader.home_phone = "" }
-		it { should_not be_valid }
+	describe "when home phone" do
+
+		describe "is not present" do
+			before { @reader.home_phone = "" }
+			it { should_not be_valid }
+		end
+
+		describe "format is invalid" do
+			it "should not be valid" do 
+				home_phones = %w[1234567 1-23-45-67 123-4567]
+				home_phones.each { |home_phone|
+					@reader.home_phone = home_phone
+					expect(@reader).not_to be_valid
+				}
+			end
+		end
+
+		describe "format is valid" do
+			it "should be valid" do 
+				home_phones = %w[123-45-67 000-00-00 999-99-99]
+				home_phones.each { |home_phone|
+					@reader.home_phone = home_phone
+					should be_valid
+				}
+			end
+		end	
 	end
 
 	describe "when profession notes" do
@@ -144,6 +224,27 @@ describe "Reader" do
 			before { @reader.home_number = "1"*5 }
 			it { should_not be_valid }
 		end
+
+		describe "format is invalid" do
+			it "should not be valid" do 
+				home_numbers = %w[12345 123456]
+				home_numbers.each { |home_number|
+					@reader.home_number = home_number
+					expect(@reader).not_to be_valid
+				}
+			end
+		end
+
+		describe "format is valid" do
+			it "should be valid" do
+				# home number = 0 тоже подходит 
+				home_numbers = %w[1 22 333 4444]
+				home_numbers.each { |home_number|
+					@reader.home_number = home_number
+					should be_valid
+				}
+			end
+		end	
 	end
 
 	describe "when building" do
@@ -157,6 +258,26 @@ describe "Reader" do
 			before { @reader.building = "1"*4 }
 			it { should_not be_valid }
 		end
+
+		describe "format is invalid" do
+			it "should not be valid" do 
+				buildings = %w[1234 12345]
+				buildings.each { |building|
+					@reader.building = building
+					expect(@reader).not_to be_valid
+				}
+			end
+		end
+
+		describe "format is valid" do
+			it "should be valid" do 
+				buildings = %w[0 1 22 333]
+				buildings.each { |building|
+					@reader.building = building
+					should be_valid
+				}
+			end
+		end	
 	end
 
 	describe "when flat number" do 
@@ -169,5 +290,26 @@ describe "Reader" do
 			before { @reader.flat_number = "1"*5 }
 			it { should_not be_valid }
 		end
+
+		describe "format is invalid" do
+			it "should not be valid" do 
+				flat_numbers = %w[12345 123456]
+				flat_numbers.each { |flat_number|
+					@reader.flat_number = flat_number
+					expect(@reader).not_to be_valid
+				}
+			end
+		end
+
+		describe "format is valid" do
+			it "should be valid" do
+				# flat number = 0 тоже подходит 
+				flat_numbers = %w[1 22 333 4444]
+				flat_numbers.each { |flat_number|
+					@reader.flat_number = flat_number
+					should be_valid
+				}
+			end
+		end	
 	end
 end

@@ -13,5 +13,4 @@ FactoryGirl.define do
         building             "4"
         flat_number          "35"
     end
-    p "hello"
 end

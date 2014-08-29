@@ -44,7 +44,7 @@ class Reader < ActiveRecord::Base
               format: { with: /\A\d+\z/ }, 
               length: { maximum: 4 },
               presence: true
-    validates :building, format: { with: /\A\d*\z/ },
+    validates :building, format: { with: /\A\d+\z/ },
               length: { maximum: 3 },
               presence: true
 

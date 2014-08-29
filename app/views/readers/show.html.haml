@@ -5,40 +5,40 @@
 %div.lib_show
   %fieldset
     %legend
-      Новый читатель
+      A new reader
     %fieldset
       %div.field
         %div.lbl_show
-          Ф.И.О:
+          Name:
         = full_name @reader
       %div.field
         %div.lbl_show
-          № читательского билета:
+          Reader card id:
         = @reader.reader_card_id
       %div.field
         %div.lbl_show
-          Дата регистрации:
+          Date of registration:
         = registration @reader
     %fieldset
       %div.field
         %div.lbl_show
-          Дата рождения:
+          Date of birth:
         = birthday @reader
       %div.field
         %div.lbl_show
-          Возраст
+          Age
         = age @reader
       %div.field
         %div.lbl_show
-          Домашний адрес:
+          Address:
         = address @reader
       %div.field
         %div.lbl_show
-          Домашний телефон:
+          Home phone:
         = @reader.home_phone
       %div.field
         %div.lbl_show
-          Место учебы/работы, профессия:
+          Profession notes:
         = @reader.profession_notes
 
 =link_to 'Change information', edit_reader_path(@reader)

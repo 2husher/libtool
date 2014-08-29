@@ -1,70 +1,84 @@
 require 'spec_helper'
 
-describe "Readers" do
+describe "Reader pages" do
 
-    describe "Creating a reader" do
-        before :each do
-            visit '/'
-            click_link 'Register a new reader'
+    subject { page }
+
+    describe "create" do
+#        before do
+#            visit '/'
+#            click_link 'Register a new reader'
+#        end
+        before do
+            visit new_reader_path
         end
 
-        it "should create a reader with valid parameters" do
+        describe "with valid parameters" do
+            before do
+                fill_in 'Last name',        with: 'Edisson'
+                fill_in 'First name',       with: 'Tomas'
+                fill_in 'Middle name',      with: 'Alva'
+                select "1976",              from:'reader_date_of_birth_1i'
+                select "August",            from:'reader_date_of_birth_2i'
+                select "4",                 from:'reader_date_of_birth_3i'
+                fill_in 'Street',           with: 'Backer str'
+                select '121',               from: 'Home number'
+                select '0',                 from: 'Building'
+                select '13',                from: 'Flat number'
+                fill_in 'Home phone',       with: '123-45-67'
+                fill_in 'Profession notes', with: 'Let it be'
+            end
+            
+            it "should create a new reader" do
+                expect { click_button 'Change reader\'s data'}.to change(Reader, :count).by(1)
+            end
 
-            fill_in 'Last name',        with: 'Edisson'
-            fill_in 'First name',       with: 'Tomas'
-            fill_in 'Middle name',      with: 'Alva'
-            select "1976",              from:'reader_date_of_birth_1i'
-            select "August",            from:'reader_date_of_birth_2i'
-            select "4",                 from:'reader_date_of_birth_3i'
+            describe "after saving reader" do
 
-            fill_in 'Street',           with: 'Backer str'
-            select '121',               from: 'Home number'
-            select '0',                 from: 'Building'
-            select '13',                from: 'Flat number'
-            fill_in 'Home phone',       with: '123-45-67'
+                before { click_button 'Change reader\'s data'}
+                let(:reader){ Reader.find_by(reader_card_id: '0000') }
 
-            fill_in 'Profession notes', with: 'Let it be'
-
-            expect do
-                click_button 'Change reader\'s data'
-            end.to change(Reader, :count).by(1)
-
-            expect(page).to have_content("Reader successfully created!")
+                it { should have_content(reader.first_name) }
+                it { should have_content(reader.middle_name) }
+                it { should have_content(reader.last_name) }
+                #it { should have_content(reader.date_of_birth) }
+                it { should have_content(reader.street) }
+                it { should have_content(reader.home_number) }
+                it { should have_content(reader.building) }
+                it { should have_content(reader.flat_number) }
+                it { should have_content(reader.home_phone) }
+                it { should have_content(reader.profession_notes) }
+                #it { should have_content(reader.date_of_registration) }
+                it { should have_content(reader.reader_card_id) }
+                it { should have_selector('div.notice', text: 'Reader successfully created!') }
+            end
         end
 
-        it "should not create a reader with invalid parameters" do
+        describe "with invalid parameters" do
+            
+            it "should not create a new reader" do
+                expect { click_button 'Change reader\'s data'}.not_to change(Reader, :count)
+            end
 
-            fill_in 'Last name',        with: ''
-            fill_in 'First name',       with: ''
-            fill_in 'Middle name',      with: ''
-            select "1976",              from:'reader_date_of_birth_1i'
-            select "August",            from:'reader_date_of_birth_2i'
-            select "4",                 from:'reader_date_of_birth_3i'
+            describe "after clicking button" do
 
-            fill_in 'Street',           with: ''
-            select '121',               from: 'Home number'
-            select '0',                 from: 'Building'
-            select '13',                from: 'Flat number'
-            fill_in 'Home phone',       with: ''
-
-            fill_in 'Profession notes', with: ''
-
-            expect do
-                click_button 'Change reader\'s data'
-            end.to change(Reader, :count).by(0)
-
-            expect(page).to have_content("7 errors prohibited this product from being saved:")
-            expect(page).to have_content("First name can't be blank")
-            expect(page).to have_content("Middle name can't be blank")
-            expect(page).to have_content("Last name can't be blank")
-            expect(page).to have_content("Home phone is invalid")
-            expect(page).to have_content("Home phone can't be blank")
-            expect(page).to have_content("Profession notes can't be blank")
-            expect(page).to have_content("Street can't be blank") 
+                before { click_button 'Change reader\'s data'}
+                
+                it { should have_content("prohibited this product from being saved:") }
+                it { should have_selector('div.error', text: "Can't save sorry:(") }
+            end
         end
     end
 
-    describe "All readers" do
+    describe "index" do
+
+        #describe "paginate" do
+        
+        #describe "all readers" 
+
+        #describe "delete a reader"
+
+        #describe ""
 
         it "should have the content 'All Readers" do
             visit '/readers'
@@ -77,7 +91,77 @@ describe "Readers" do
         end
     end
 
-    describe "Viewing a reader" do
+    #describe "show a reader"
 
+            #describe "a new reader"
+
+            #describe "reader's books"
+    
+
+    #describe "delete a reader"
+
+    describe "edit" do
+        let(:reader) { FactoryGirl.create(:reader) }
+        before { visit edit_reader_path(reader) }
+
+        describe "page" do
+            it { should have_content("Change reader's information") }
+        end
+
+        describe "with valid information" do
+
+            let(:new_first_name){ "Ostap" }
+            let(:new_middle_name){ "Maria" }
+            let(:new_last_name){ "Bender" }
+            let(:new_year){ "1944" }
+            let(:new_month){ "December" }
+            let(:new_month_index){ "12" }
+            let(:new_day){ "22" }
+            let(:new_street){ "Sezam str" }
+            let(:new_home_number){ 7 }
+            let(:new_building){ 2 }
+            let(:new_flat_number){ 88 }
+            let(:new_home_phone){ "987-65-43" }
+            let(:new_profession_notes){ "Oh yeah" }
+
+            before do
+                fill_in 'Last name',        with: new_last_name
+                fill_in 'First name',       with: new_first_name
+                fill_in 'Middle name',      with: new_middle_name
+                select new_year,            from:'reader_date_of_birth_1i'
+                select new_month,           from:'reader_date_of_birth_2i'
+                select new_day,             from:'reader_date_of_birth_3i'
+                fill_in 'Street',           with: new_street
+                select new_home_number,     from: 'Home number'
+                select new_building,        from: 'Building'
+                select new_flat_number,     from: 'Flat number'
+                fill_in 'Home phone',       with: new_home_phone
+                fill_in 'Profession notes', with: new_profession_notes
+
+                click_button "Update reader's data"
+            end
+
+            it { should have_selector('div.notice', 'Reader successfully updated!') }
+            specify{ expect(reader.reload.first_name).to eq new_first_name }
+            specify{ expect(reader.reload.middle_name).to eq new_middle_name }
+            specify{ expect(reader.reload.last_name).to eq new_last_name }
+            specify{ expect(reader.reload.date_of_birth.to_s).to eq "#{new_year}-#{new_month_index}-#{new_day}" }
+            specify{ expect(reader.reload.street).to eq new_street }
+            specify{ expect(reader.reload.home_number).to eq new_home_number }
+            specify{ expect(reader.reload.building).to eq new_building }
+            specify{ expect(reader.reload.flat_number).to eq new_flat_number }
+            specify{ expect(reader.reload.home_phone).to eq new_home_phone }
+            specify{ expect(reader.reload.profession_notes).to eq new_profession_notes }
+        end
+
+        describe "with invalid information" do
+            before do
+                fill_in "First name", with: ""
+                click_button "Update reader's data"
+            end
+
+            it { should have_selector('div.error', "Can't save sorry:(") }
+            it { should have_content("Change reader's information") }
+        end
     end
 end
