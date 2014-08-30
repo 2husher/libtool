@@ -9,9 +9,7 @@ describe "Reader pages" do
 #            visit '/'
 #            click_link 'Register a new reader'
 #        end
-        before do
-            visit new_reader_path
-        end
+        before { visit new_reader_path }
 
         it { should have_title("New Reader | Library") }
         it { should have_content("New reader registration") }

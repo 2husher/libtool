@@ -13,4 +13,12 @@ FactoryGirl.define do
         building             "4"
         flat_number          "35"
     end
+
+    factory :book do
+        identity        "ISBN 0-1234-5678-9" 
+        title           "War and Peace"
+        author          "Lev Tolstoy"
+        publishing_year "1998-01-01"
+        annotation      "A big book"
+    end
 end
