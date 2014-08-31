@@ -1,0 +1,180 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+ 
+ 
+html, body {
+    margin:  0px;
+    padding: 0px;
+    border:  0px;
+}
+body  {
+    background: image-url(lib1);
+    color: #000;
+    font-family: 'Courier New';
+}
+#carrier{
+  //width: 1000px;
+  //background: #fff;// url("red.gif") top left repeat-y scroll;
+  margin: auto;
+}
+#header, #menu, #text h2, #footer{
+  font-family: Tahoma
+}
+#header, #footer p{
+  color: #fff;
+  background: #B8860B;
+  margin: 0px;
+  padding: 10px 20px;
+  text-align: center;
+}
+#header{
+  font-size: 150%;
+}
+#menucarrier{
+  width: 10%;
+  float: left;
+  background: #c99;
+}
+#menu{
+  font-size: 18px;
+  padding: 10px 20px;
+  text-align: center;
+  //border-style: none dotted none none;
+  border-width: 0px 2px 2px 0px;
+  border-color: orange;
+}
+#menu p{
+  padding: 10px 0px;
+  margin: 0px;
+}
+#textcarrier{  
+  width: 90%;
+  float: right;
+  background-color: #fff;
+}
+#text{
+  padding: 20px;
+}
+#text h2{
+  font-size: 120%;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+#text h2:first-child{
+  margin-top: 0px;
+}
+#text p{
+  text-align: justify;
+  text-indent: 1.5em;
+  margin: 0px;
+}
+#footer{
+  width: 100%;
+  clear: both;
+}
+.lbl{
+  width: 10em;
+  display: inline-block;
+}
+.txt_entry{
+  width: 10em;
+}
+div.field, div.actions{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+.lib_form fieldset {
+  font-weight: bold;
+  color: yellow;
+  background: #a23;
+  width: 800px;
+}
+.lib_form fieldset legend{
+  background: #699;
+  color: yellow;
+  padding: 4px 10px;
+}
+.lib_form form label{
+  width: 200px;
+  display: block;
+  float: left;
+  text-align: right;
+  margin-right: 10px;
+}
+.lib_form form textarea, .lib_form form select, .lib_form form input{
+  margin-left: 10px;
+}
+
+fieldset{
+  margin: 10px 0px;
+}
+
+.lib_show fieldset {
+  font-weight: bold;
+  color: yellow;
+  background: #456;
+  width: 800px;
+}
+.lib_show fieldset legend{
+  background: #699;
+  color: yellow;
+  padding: 4px 10px;
+}
+div.lbl_show{
+  width: 200px;
+  display: block;
+  color: #fff;
+  float: left;
+  text-align: right;
+  margin-right: 10px;
+}
+td, th{
+    padding: 10px;
+    border: 3px solid green;
+}
+th{
+    background: #f34;
+}
+.odd_line{
+  background: #b14;
+}
+.even_line{
+  background: #954;
+}
+.notice{
+  color : green;
+  background-color: #90e192;
+  border: solid;
+  padding: 10px;
+  text-align: center;
+}
+.error{
+  color : red;
+  background-color: #f5dadc;
+  border: solid;
+  padding: 10px;
+  text-align: center;
+}
+.errors{
+  color: #fff;
+  background-color: red;
+  //border:solid red 10px;
+  //padding: 10px;
+}
+.field_with_errors{
+  border: solid red 10px;
+}
