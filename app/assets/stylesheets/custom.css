@@ -4,8 +4,8 @@ html, body {
     border:  0px;
 }
 body  {
-    background-image: url('lib1.jpg');
     color: #000;
+    background-image: url('lib1.jpg');
     font-family: 'Courier New';
 }
 #carrier{
