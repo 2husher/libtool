@@ -1,3 +1,29 @@
+# == Schema Information
+#
+# Table name: readers
+#
+#  id                   :integer          not null, primary key
+#  is_banned            :boolean
+#  created_at           :datetime
+#  updated_at           :datetime
+#  date_of_birth        :date
+#  first_name           :string(255)
+#  middle_name          :string(255)
+#  last_name            :string(255)
+#  date_of_registration :date
+#  home_phone           :string(255)
+#  profession_notes     :text
+#  street               :string(255)
+#  home_number          :integer
+#  building             :integer
+#  flat_number          :integer
+#  reader_card_id       :string(255)
+#
+# Indexes
+#
+#  index_readers_on_reader_card_id  (reader_card_id)
+#
+
 require 'spec_helper'
 
 describe "Reader" do 

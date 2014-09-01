@@ -9,8 +9,10 @@ gem 'annotate', '2.6.5'
 gem 'rails-footnotes', '4.0.2'
 gem 'faker', '1.4.3'
 
+gem 'pg', '0.15.1'
+
 group :development, :test do
-	gem 'sqlite3', '1.3.9'
+#	gem 'sqlite3', '1.3.9'
 	gem 'rspec-rails', '2.13.1'
 	gem 'debugger', '1.6.8'
 	gem 'guard-rspec', '2.5.0'
@@ -38,7 +40,6 @@ group :doc do
 end
 
 group :production do
-	gem 'pg', '0.15.1'
 	gem 'rails_12factor', '0.0.2'
 end
 

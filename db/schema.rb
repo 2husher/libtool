@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140814194354) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "books", force: true do |t|
     t.integer  "reader_id"
     t.string   "identity"
@@ -25,7 +28,7 @@ ActiveRecord::Schema.define(version: 20140814194354) do
     t.date     "publishing_year"
   end
 
-  add_index "books", ["reader_id"], name: "index_books_on_reader_id"
+  add_index "books", ["reader_id"], name: "index_books_on_reader_id", using: :btree
 
   create_table "librarians", force: true do |t|
     t.string   "name"
@@ -52,6 +55,6 @@ ActiveRecord::Schema.define(version: 20140814194354) do
     t.string   "reader_card_id"
   end
 
-  add_index "readers", ["reader_card_id"], name: "index_readers_on_reader_card_id"
+  add_index "readers", ["reader_card_id"], name: "index_readers_on_reader_card_id", using: :btree
 
 end

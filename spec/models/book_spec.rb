@@ -1,3 +1,23 @@
+# == Schema Information
+#
+# Table name: books
+#
+#  id              :integer          not null, primary key
+#  reader_id       :integer
+#  identity        :string(255)
+#  title           :string(255)
+#  author          :string(255)
+#  annotation      :text
+#  returning_date  :date
+#  created_at      :datetime
+#  updated_at      :datetime
+#  publishing_year :date
+#
+# Indexes
+#
+#  index_books_on_reader_id  (reader_id)
+#
+
 require 'spec_helper'
 
 describe "Book" do
