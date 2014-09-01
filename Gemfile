@@ -14,6 +14,9 @@ group :development, :test do
 	gem 'rspec-rails', '2.13.1'
 	gem 'debugger', '1.6.8'
 	gem 'guard-rspec', '2.5.0'
+	gem 'spork-rails', '4.0.0'
+  	gem 'guard-spork', '1.5.0'
+  	gem 'childprocess', '0.5.3'
 end
 
 gem 'sass-rails', '4.0.3'
