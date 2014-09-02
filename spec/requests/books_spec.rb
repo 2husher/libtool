@@ -5,6 +5,8 @@ describe "Book pages" do
     subject { page }
 
     describe 'new' do
+        let(:add_button) { "Add a new book" }
+
         before { visit new_book_path }
 
         it { should have_title("New Book | Library") }
@@ -13,12 +15,12 @@ describe "Book pages" do
         describe "with invalid parameters" do
             
             it "should not create a new book" do
-                expect { click_button 'Add a new book'}.not_to change(Book, :count)
+                expect { click_button add_button}.not_to change(Book, :count)
             end
 
             describe "after clicking button" do
 
-                before { click_button 'Add a new book'}
+                before { click_button add_button}
                 
                 it { should have_content("prohibited this product from being saved:") }
                 it { should have_selector('div.error', text: "Can't save sorry:(") }
@@ -36,11 +38,11 @@ describe "Book pages" do
             end
 
             it "should create a new book" do
-                expect { click_button 'Add a new book' }.to change(Book, :count).by(1)
+                expect { click_button add_button }.to change(Book, :count).by(1)
             end
 
             describe "after saving reader" do 
-              before { click_button 'Add a new book' }
+              before { click_button add_button }
               let(:book){ Book.find_by(identity: "ISBN 0-1234-5678-9") }
 
               it { should have_content(book.identity) }
@@ -69,6 +71,7 @@ describe "Book pages" do
     end
 
     describe 'edit' do
+        let(:change_button){ 'Change data'}
         let(:book){ FactoryGirl.create(:book) }
         before { visit edit_book_path(book) }
 
@@ -92,7 +95,7 @@ describe "Book pages" do
                fill_in 'Annotation',        with: new_annotation
                select  new_publishing_year, from: 'book_publishing_year_1i'
 
-               click_button "Change data"
+               click_button change_button
             end
 
             it { should have_selector('div.notice', 'Book successfully updated!') }
@@ -106,7 +109,7 @@ describe "Book pages" do
         describe "with invalid information" do
             before do
                 fill_in "Identity", with: ""
-                click_button "Change data"
+                click_button change_button
             end
 
             it { should have_selector('div.error', "Can't save sorry:(") }

@@ -9,13 +9,14 @@ describe "Reader pages" do
 #            visit '/'
 #            click_link 'Register a new reader'
 #        end
+        let(:change_button){ 'Change reader\'s data' }
         before { visit new_reader_path }
 
         it { should have_title("New Reader | Library") }
         it { should have_content("New reader registration") }
 
         describe "with valid parameters" do
-            before do
+            before  do
                 fill_in 'Last name',        with: 'Edisson'
                 fill_in 'First name',       with: 'Tomas'
                 fill_in 'Middle name',      with: 'Alva'
@@ -31,12 +32,12 @@ describe "Reader pages" do
             end
             
             it "should create a new reader" do
-                expect { click_button 'Change reader\'s data'}.to change(Reader, :count).by(1)
+                expect { click_button change_button}.to change(Reader, :count).by(1)
             end
 
             describe "after saving reader" do
 
-                before { click_button 'Change reader\'s data'}
+                before { click_button change_button}
                 let(:reader){ Reader.find_by(reader_card_id: '0000') }
 
                 it { should have_content(reader.first_name) }
@@ -58,12 +59,12 @@ describe "Reader pages" do
         describe "with invalid parameters" do
             
             it "should not create a new reader" do
-                expect { click_button 'Change reader\'s data'}.not_to change(Reader, :count)
+                expect { click_button change_button}.not_to change(Reader, :count)
             end
 
             describe "after clicking button" do
 
-                before { click_button 'Change reader\'s data'}
+                before { click_button change_button}
                 
                 it { should have_content("prohibited this product from being saved:") }
                 it { should have_selector('div.error', text: "Can't save sorry:(") }
@@ -105,6 +106,7 @@ describe "Reader pages" do
     #describe "delete a reader"
 
     describe "edit" do
+        let(:update_button){ "Update reader's data" }
         let(:reader) { FactoryGirl.create(:reader) }
         before { visit edit_reader_path(reader) }
 
@@ -143,7 +145,7 @@ describe "Reader pages" do
                 fill_in 'Home phone',       with: new_home_phone
                 fill_in 'Profession notes', with: new_profession_notes
 
-                click_button "Update reader's data"
+                click_button update_button
             end
 
             it { should have_selector('div.notice', 'Reader successfully updated!') }
@@ -162,7 +164,7 @@ describe "Reader pages" do
         describe "with invalid information" do
             before do
                 fill_in "First name", with: ""
-                click_button "Update reader's data"
+                click_button update_button
             end
 
             it { should have_selector('div.error', "Can't save sorry:(") }
