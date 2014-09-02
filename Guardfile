@@ -1,4 +1,4 @@
-# A sample Guardfile
+  # A sample Guardfile
 # More info at https://github.com/guard/guard#readme
 require 'active_support/inflector'
 
@@ -49,7 +49,6 @@ guard 'rspec', all_after_pass: false, cli: '--drb' do
     "spec/requests/authentication_pages_spec.rb"
   end
 =end
-
   watch('app/controllers/application_controller.rb')  { "spec/controllers" }
   watch(%r{^app/controllers/(.+)_controller\.rb$}) do |m|
     ["spec/requests/#{m[1]}_spec\.rb"]

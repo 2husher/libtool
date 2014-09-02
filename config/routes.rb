@@ -21,8 +21,13 @@
 #
 
 Libtool::Application.routes.draw do
+  root "static_pages#home"
 
-  root 'readers#index'
+  get "about", to: "static_pages#about", via: 'get'
+
+#  get "about"    => "static_pages#about",    as: :about
+  get "contacts" => "static_pages#contacts", as: :contacts
+  get "help"     => "static_pages#help"
 
   get "search/find"
 
