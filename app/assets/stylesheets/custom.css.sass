@@ -1,12 +1,49 @@
-$primary-color: black
-$primary-background-color: red
+$margin-vertical: 20px
+$margin-horizontal: 1%
+$padding-vertical: 10px
+$padding-horizontal: 1%
 
-html, body
-    margin: 0px
-    paddin: 0px
-    border: 0px
+html, 
+body
+  margin: 0px
+  padding: 0px
+  border: 0px
 
 body
-    color: $primary-color
-    background-color: $primary-background-color
-    fond-family: Tahoma
+  color: black
+  background-color: red
+  h1
+    text-align: center
+
+header,
+#container,
+footer,
+aside
+  background-color: white
+  margin-bottom: $margin-vertical
+  padding: $padding-vertical $padding-horizontal
+
+header
+  margin-top: $margin-vertical
+  #logo
+  nav 
+    float: right
+
+footer
+  text-align: center
+  clear: both
+
+aside
+  width: 10%
+  float: left
+  margin-left: $margin-horizontal
+  ul 
+    list-style: none
+    li
+      padding-top: 10px
+ 
+#container
+  width: 83%
+  float: right
+  margin-right: $margin-horizontal
+
