@@ -44,4 +44,18 @@ describe "Static pages" do
 
     it_should_behave_like "all static pages"
   end
+
+  it "should have right links on the layout" do
+      visit root_path
+      click_link "Help"
+      expect(page).to have_title(full_title "Help")
+      click_link "Home"
+      expect(page).to have_title(full_title "")
+      click_link "Contacts"
+      expect(page).to have_title(full_title "Contacts")
+      click_link "Library"
+      expect(page).to have_title(full_title "")
+      click_link "About Us"
+      expect(page).to have_title(full_title "About Us")
+  end
 end
