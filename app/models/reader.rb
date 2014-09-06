@@ -21,7 +21,7 @@
 #
 # Indexes
 #
-#  index_readers_on_reader_card_id  (reader_card_id)
+#  index_readers_on_reader_card_id  (reader_card_id) UNIQUE
 #
 
 class Reader < ActiveRecord::Base

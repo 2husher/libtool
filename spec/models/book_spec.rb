@@ -15,7 +15,7 @@
 #
 # Indexes
 #
-#  index_books_on_reader_id  (reader_id)
+#  index_books_on_identity  (identity) UNIQUE
 #
 
 require 'spec_helper'
@@ -43,16 +43,22 @@ describe "Book" do
 	describe "when identity" do
 
 		describe "is not present" do
-
 			before{ @book.identity = "" }
 			it { should_not be_valid}
+		end
+
+		describe "is not unique" do
+			before do
+				book_with_same_identity = @book.dup
+				book_with_same_identity.save
+			end
+			it { should_not be_valid }
 		end
 	end
 
 	describe "when title" do
 
 		describe "is not present" do
-
 			before{ @book.title = "" }
 			it { should_not be_valid}
 		end
@@ -61,7 +67,6 @@ describe "Book" do
 	describe "when author" do
 
 		describe "is not present" do
-
 			before{ @book.author = "" }
 			it { should_not be_valid}
 		end
@@ -70,7 +75,6 @@ describe "Book" do
 	describe "when publishing_year" do
 
 		describe "is not present" do
-
 			before{ @book.publishing_year = "" }
 			it { should_not be_valid}
 		end
@@ -100,7 +104,6 @@ describe "Book" do
 	describe "when annotation" do
 
 		describe "is not present" do
-
 			before{ @book.annotation = "" }
 			it { should_not be_valid}
 		end

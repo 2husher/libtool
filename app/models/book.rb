@@ -15,7 +15,7 @@
 #
 # Indexes
 #
-#  index_books_on_reader_id  (reader_id)
+#  index_books_on_identity  (identity) UNIQUE
 #
 
 class Book < ActiveRecord::Base
@@ -25,7 +25,7 @@ class Book < ActiveRecord::Base
 
   scope :free, -> { where(reader_id: nil) }
 
-  validates :identity,
+  validates :identity, uniqueness: true,
             presence: true
   validates :title,
             presence: true
