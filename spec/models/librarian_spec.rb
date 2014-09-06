@@ -2,11 +2,12 @@
 #
 # Table name: librarians
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  created_at :datetime
-#  updated_at :datetime
-#  birth_date :date
+#  id              :integer          not null, primary key
+#  name            :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#  birth_date      :date
+#  password_digest :string(255)
 #
 
 require 'spec_helper'
@@ -17,11 +18,16 @@ describe "Librarian" do
 
     before do
         @librarian = Librarian.new(name: "Great Librarian",
-                                   birth_date: "1965-09-01")
+                                   birth_date: "1965-09-01",
+                                   password: "foobar",
+                                   password_confirmation: "foobar")
     end
 
     it { should respond_to(:name)}
     it { should respond_to(:birth_date) }
+    it { should respond_to(:password) }
+    it { should respond_to(:password_confirmation) }
+    it { should respond_to(:authenticate) }
 
     it { should be_valid }
 
@@ -59,5 +65,37 @@ describe "Librarian" do
                 }
             end
         end    
+    end
+
+    describe "with password" do
+
+        describe "is not present" do
+            before do
+                @librarian.password = "" 
+                @librarian.password_confirmation = ""
+            end
+            it { should_not be_valid }
+        end
+
+        describe "with password confirmation mismatches" do
+            before { @librarian.password_confirmation = "mismatch" }
+            it { should_not be_valid }
+        end
+
+        describe "with authentication method" do
+            before { @librarian.save }
+            let(:found_librarian){ Librarian.find_by(name: @librarian.name) }
+
+            describe "with valid password" do
+                let(:valid_password_librarian){ found_librarian.authenticate("foobar") }
+                it { should == valid_password_librarian }
+            end
+
+            describe "with invalid password" do
+                let(:invalid_password_librarian){ found_librarian.authenticate("invalid") }             
+                it { should_not == invalid_password_librarian }
+                it { expect(invalid_password_librarian).to be_false }
+            end
+        end
     end
 end
