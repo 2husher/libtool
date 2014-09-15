@@ -1,0 +1,18 @@
+-provide(:title, librarian.name)
+
+-if notice
+  %div.notice
+    = notice
+
+%div.lib_show
+  %fieldset
+    %legend
+      Librarian's info
+    %div.field
+      %div.lbl_show
+        Name:
+      = librarian.name
+    %div.field
+      %div.lbl_show
+        Birth Date:
+      = librarian.birth_date

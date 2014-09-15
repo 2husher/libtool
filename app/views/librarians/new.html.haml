@@ -1,0 +1,11 @@
+- provide(:title, "Sign Up")
+
+-if flash[:error]
+  %div.error
+    = flash[:error]
+
+%div.lib_form
+  %fieldset
+    %legend
+      Sign Up
+    = render partial: 'form', locals: { submit_lbl: "Sign up" }

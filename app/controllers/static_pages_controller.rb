@@ -9,5 +9,9 @@ class StaticPagesController < ApplicationController
   end
 
   def help
+    respond_to do |format|
+      format.html
+      format.text
+    end
   end
 end

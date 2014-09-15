@@ -1,0 +1,17 @@
+-size_field = 60
+
+= form_for @librarian do |l|
+  = render partial: 'shared/errors', locals: { object: l.object }
+  %fieldset
+    %div.field
+      = l.label :name
+      = l.text_field :name, size: size_field
+    %div.field
+      = l.label :birth_date
+      = l.date_select :birth_date, start_year: 1960, end_year: 1995
+    %div.field
+      = l.label :password
+      = l.password_field :password, size: size_field
+    %div.field
+      = l.label :password_confirmation
+      = l.password_field :password_confirmation, size: size_field

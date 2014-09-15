@@ -1,0 +1,20 @@
+-provide(:title, "All Librarians")
+
+-if notice
+  %div.notice
+    = notice
+
+%h2
+  All Librarians
+
+-#%table
+  -#%tr
+  -#  %th
+  -#    Name
+  -#  %th
+  -#    Birth Date
+  -#  %th
+
+- @librarians.each do |librarian|
+  = render librarian
+  
